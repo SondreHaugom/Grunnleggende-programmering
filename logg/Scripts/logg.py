@@ -8,24 +8,35 @@ total_ok = 0
 total_lines_for_each_user = {}
 
 def count_lines_in_file(file_path):
+    # Bruker global variabler for å lagre resultatene
+    global total_lines
+    global total_fails
+    global total_ok
 
     try:
         with open(file_path, "r") as file:
             all_lines = file.readlines()
 
             # Henter ut alle linjer fra lista
-  
             for line in all_lines:
                 if line.strip():
                     total_lines += 1
-                else:
-                    print(f"Empty line found: {line.strip()}")
-            
+                    # Sjekker lista for antal FAIL linjer
+                    failed_components = line.strip().split(';')
+                    if len(failed_components) >= 3 and failed_components[-1] == "FAIL":  # Sjekker kun siste kolonne
+                        total_fails += 1
+
+                    
+                    valid_parts = line.strip().split(';')
+                    if len(valid_parts) >= 1 and valid_parts[-1] == "OK":  # Sjekker kun siste kolonne
+                        total_ok += 1
 
 
-
+     
         print(f"Total lines: {total_lines}")
         print(f"Total FAIL lines: {total_fails}")
+        print(f"Total OK lines: {total_ok}")
+
         
             
     except FileNotFoundError:

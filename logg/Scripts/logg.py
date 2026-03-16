@@ -1,22 +1,15 @@
 def count_lines_in_file(file_path):
-    # Bruker global variabler for å lagre resultatene
-    global total_lines
-    global total_fails
-    global total_ok
-    global name_list
-    global user_line_counts
-
-    
+    # legger til startverdier for tellingen
     total_fails = 0
     total_ok = 0
     total_lines = 0
     name_list = []
     user_line_counts = {}
 
+    # åpner filen og leser innholdet, og håndterer eventuelle feil hvis filen ikke finnes
     try:
         with open(file_path, "r") as file:
             all_lines = file.readlines()
-
             # Henter ut alle linjer fra lista
             for line in all_lines:
                 name_list.append(line.strip().split(';')[1]) # Henter ut navnene og legger de i en liste
@@ -38,16 +31,14 @@ def count_lines_in_file(file_path):
                     if len(valid_parts) >= 1 and valid_parts[-1] == "OK":  # Sjekker kun siste kolonne
                         total_ok += 1
 
-                    user_line_counts = name_list[all_lines.index(line)]
-                    if user_line_counts in user_line_counts:
-                        user_line_counts[user_line_counts] += 1
-                    else:
-                        user_line_counts[user_line_counts] = 1
                     
-
-
-
-     
+                    user_name = name_list[all_lines.index(line)]
+                    if user_name in user_line_counts:
+                        user_line_counts[user_name] += 1
+                    else:
+                        user_line_counts[user_name] = 1
+    
+        # printer ut verdiene for total linjer, total FAIL linjer, total OK linjer og total linjer for hver bruker
         print(f"Total lines: {total_lines}")
         print(f"Total FAIL lines: {total_fails}")
         print(f"Total OK lines: {total_ok}")

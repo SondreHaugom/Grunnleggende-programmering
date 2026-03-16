@@ -12,32 +12,26 @@ def count_lines_in_file(file_path):
             all_lines = file.readlines()
             # Henter ut alle linjer fra lista
             for line in all_lines:
-                name_list.append(line.strip().split(';')[1]) # Henter ut navnene og legger de i en liste
-                # Skjekker for tomme linjer
-                if name_list == []:
-                    print("No names found in the file.")
+                parts = line.strip().split(';')
 
+                if line.strip():  # Check if the line is not empty
+                    total_lines += 1
                 
-                if line.strip():
-                    if line in all_lines:
-                        total_lines += 1
 
-                    failed_components = line.strip().split(';')
-                    if len(failed_components) >= 3 and failed_components[-1] == "FAIL":  # Sjekker kun siste kolonne
-                        total_fails += 1
-               
-                    # skjekker lista for antal OK linjer
-                    valid_parts = line.strip().split(';')
-                    if len(valid_parts) >= 1 and valid_parts[-1] == "OK":  # Sjekker kun siste kolonne
-                        total_ok += 1
+                # skjekker for antal FAIL og OK linher ved å sjekke siste kolonne i linjen
+                if len(parts) >= 3 and parts[-1] == "FAIL":
+                    total_fails += 1
+                
+                elif len(parts) >= 1 and parts[-1] == "OK":
+                    total_ok += 1
 
-                    
-                    user_name = name_list[all_lines.index(line)]
-                    if user_name in user_line_counts:
-                        user_line_counts[user_name] += 1
-                    else:
-                        user_line_counts[user_name] = 1
-    
+               # user_name = name_list[all_lines.index(line)]
+               # if user_name in user_line_counts:
+               #     user_line_counts[user_name] += 1
+               # else:
+               #     user_line_counts[user_name] = 1
+
+
         # printer ut verdiene for total linjer, total FAIL linjer, total OK linjer og total linjer for hver bruker
         print(f"Total lines: {total_lines}")
         print(f"Total FAIL lines: {total_fails}")

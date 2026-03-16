@@ -1,6 +1,70 @@
 name_list = []
 
+# forsøk på å lage en mer strukturert og robust løsning ved å bruke funksjoner og unngå global variabler
 
+total_lines = 0
+total_fails = 0
+total_ok = 0
+total_lines_for_each_user = {}
+
+def count_lines_in_file(file_path):
+
+    try:
+        with open(file_path, "r") as file:
+            all_lines = file.readlines()
+
+            # Henter ut alle linjer fra lista
+  
+            for line in all_lines:
+                if line.strip():
+                    total_lines += 1
+                else:
+                    print(f"Empty line found: {line.strip()}")
+            
+
+
+
+        print(f"Total lines: {total_lines}")
+        print(f"Total FAIL lines: {total_fails}")
+        
+            
+    except FileNotFoundError:
+        print(f"Error: The file '{file_path}' was not found.")
+
+
+count_lines_in_file("logg/Scripts/logg.txt")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""
 file_path = "logg/Scripts/logg.txt"
 try:
     with open(file_path, "r") as file:
@@ -38,7 +102,6 @@ try:
 
 
 
-
         for line in all_lines:
             parts = line.strip().split(';')
             if len(parts) >= 1 and parts[-1] == "OK":  # Sjekker kun siste kolonne
@@ -66,43 +129,5 @@ try:
         
 except FileNotFoundError:
     print(f"Error: The file '{file_path}' was not found.")
-
-
-
-
-
-# forsøk på å lage en mer strukturert og robust løsning ved å bruke funksjoner og unngå global variabler
-"""
-total_lines = 0
-total_fails = 0
-total_ok = 0
-total_lines_for_each_user = {}
-
-def count_lines_in_file(file_path):
-    file_path = "logg/Scripts/logg.txt"
-    
-    
-    try:
-        with open(file_path, "r") as file:
-            all_lines = file.readlines()
-
-            for line in all_lines:
-                name_list.append(line.strip().split(';')[1])  # Assuming the name is always in the second column
-
-                if "non-empty_line" in line:
-                    for line in all_lines:
-                        if line:  # Check if the line is not empty
-                            total_lines += 1
-                        else:
-                            print(f"Empty line found: {line.strip()}")
-        
-        
-        
-        print(f"Total lines: {total_lines}")
-        return file_path
-                
-    except FileNotFoundError:
-        print(f"Error: The file '{file_path}' was not found.")
-
 
 """

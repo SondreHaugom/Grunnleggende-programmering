@@ -40,13 +40,11 @@ def count_lines_in_file(file_path):
         print("Total lines for each user:")
         for name, count in user_line_counts.items():
             print(f"{name}: {count}")
-
-        
-            
+ 
     except FileNotFoundError:
         print(f"Error: The file '{file_path}' was not found.")
 
-
+# kaller funksjonen for å telle linjer i filen
 count_lines_in_file("logg/Scripts/logg.txt")
 
 
@@ -55,30 +53,7 @@ count_lines_in_file("logg/Scripts/logg.txt")
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Gammel løsning.
 """
 file_path = "logg/Scripts/logg.txt"
 try:

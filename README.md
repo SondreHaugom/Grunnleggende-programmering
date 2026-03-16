@@ -1,1 +1,0 @@
-Grunnlegende programeirng

@@ -1,17 +1,17 @@
-name_list = []
-
-# forsøk på å lage en mer strukturert og robust løsning ved å bruke funksjoner og unngå global variabler
-
-total_lines = 0
-total_fails = 0
-total_ok = 0
-total_lines_for_each_user = {}
-
 def count_lines_in_file(file_path):
     # Bruker global variabler for å lagre resultatene
     global total_lines
     global total_fails
     global total_ok
+    global name_list
+    global user_line_counts
+
+    
+    total_fails = 0
+    total_ok = 0
+    total_lines = 0
+    name_list = []
+    user_line_counts = {}
 
     try:
         with open(file_path, "r") as file:
@@ -19,23 +19,41 @@ def count_lines_in_file(file_path):
 
             # Henter ut alle linjer fra lista
             for line in all_lines:
+                name_list.append(line.strip().split(';')[1]) # Henter ut navnene og legger de i en liste
+                # Skjekker for tomme linjer
+                if name_list == []:
+                    print("No names found in the file.")
+
+                
                 if line.strip():
-                    total_lines += 1
-                    # Sjekker lista for antal FAIL linjer
+                    if line in all_lines:
+                        total_lines += 1
+
                     failed_components = line.strip().split(';')
                     if len(failed_components) >= 3 and failed_components[-1] == "FAIL":  # Sjekker kun siste kolonne
                         total_fails += 1
-
-                    
+               
+                    # skjekker lista for antal OK linjer
                     valid_parts = line.strip().split(';')
                     if len(valid_parts) >= 1 and valid_parts[-1] == "OK":  # Sjekker kun siste kolonne
                         total_ok += 1
+
+                    user_line_counts = name_list[all_lines.index(line)]
+                    if user_line_counts in user_line_counts:
+                        user_line_counts[user_line_counts] += 1
+                    else:
+                        user_line_counts[user_line_counts] = 1
+                    
+
 
 
      
         print(f"Total lines: {total_lines}")
         print(f"Total FAIL lines: {total_fails}")
         print(f"Total OK lines: {total_ok}")
+        print("Total lines for each user:")
+        for name, count in user_line_counts.items():
+            print(f"{name}: {count}")
 
         
             

@@ -3,7 +3,6 @@ def count_lines_in_file(file_path):
     total_fails = 0
     total_ok = 0
     total_lines = 0
-    name_list = []
     user_line_counts = {}
 
     # åpner filen og leser innholdet, og håndterer eventuelle feil hvis filen ikke finnes
@@ -25,11 +24,13 @@ def count_lines_in_file(file_path):
                 elif len(parts) >= 1 and parts[-1] == "OK":
                     total_ok += 1
 
-               # user_name = name_list[all_lines.index(line)]
-               # if user_name in user_line_counts:
-               #     user_line_counts[user_name] += 1
-               # else:
-               #     user_line_counts[user_name] = 1
+                # teller linjer for hver bruker ved å sjekke andre kolonne i linjen
+                if len(parts) >= 2:
+                    name = parts[1]
+                    if name in user_line_counts:
+                        user_line_counts[name] += 1
+                    else: 
+                        user_line_counts[name] = 1
 
 
         # printer ut verdiene for total linjer, total FAIL linjer, total OK linjer og total linjer for hver bruker

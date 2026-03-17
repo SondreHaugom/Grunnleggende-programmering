@@ -1,3 +1,6 @@
+import os
+file_path = os.path.join(os.path.dirname(__file__), "logg.txt")
+
 def count_lines_in_file(file_path):
     # legger til startverdier for tellingen
     total_fails = 0
@@ -45,7 +48,7 @@ def count_lines_in_file(file_path):
         print(f"Error: The file '{file_path}' was not found.")
 
 # kaller funksjonen for å telle linjer i filen
-count_lines_in_file("logg/Scripts/logg.txt")
+count_lines_in_file(file_path)
 
 
 

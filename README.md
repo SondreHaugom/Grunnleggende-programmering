@@ -28,7 +28,7 @@ Dette prosjektet er et øvingsprosjekt hvor jeg skal jobbe systematisk med de me
 Gjennom disse delprosjektene skal jeg arbeide med følgende temaer:
 
 - Løkker – Forstå og implementere ulike typer løkker for å automatisere gjentakende oppgaver.
-- Funksjoner – Lære å skrive og bruke funksjoner for å strukturere og gjenbruke kode.
+- Funksjoner/pytest – Lære å skrive funksjoner å sikre at funksjoenn gjør det den skal med pytest modulen.
 - Databaser – Få innsikt i hvordan man kan lagre, hente og manipulere data ved hjelp av databaser.
 - Logikk – Utvikle evnen til å bruke betingelser og logiske uttrykk for å styre programflyten.
 Målet med prosjektet er å tilegne meg solide, grunnleggende ferdigheter i programmering, uten å bruke kunstig intelligens til å løse oppgavene. Jeg skal i stedet benytte dokumentasjon og andre tilgjengelige, tradisjonelle hjelpemidler. Dette vil styrke min selvstendighet og forståelse for sentrale konsepter innen programmering.
@@ -100,3 +100,18 @@ Måten det ble løst på var at jeg, i stedet for å ha mange for-løkker etter 
 
 
 ## Passord
+Passordoppgaven handler om funksjoner og pytest. Målet er å lage en funksjon og bruke pytest til å sjekke om den gjør det den skal. Funksjonen skal kontrollere fire forskjellige krav som passordet må oppfylle:
+- minst 10 tegn
+- minst 1 stor bokstav
+- 1 liten bokstav og 1 t
+- ingen mellomrom
+
+Oppgaven skal ha to filer (oppgave2_passord.py og test_oppgave2_passord.py) en fil for funksjonen og den andre for teste funksjonen med pytest. Målet er å sjekke at funksjonen klarer å oppdage når et passord er feil, og at den også klarer å bekrefte når et passord er riktig
+
+### Løsning 
+Måten jeg løste det på var ganske lik den første oppgaven. Siden jeg skulle sjekke forskjellige krav, begynte jeg med å sette opp en liten funksjon som sjekket at passordet hadde minst 10 tegn. Etter det satte jeg opp test_oppgave2_passord.py for å kjøre pytest-testene. Når jeg hadde sett at det fungerte, bygde jeg videre på de andre kravene passordet trengte, og sjekket underveis.
+
+#### Resultat
+![Skjermbilde](/bilder/Skjermbilde%202026-03-18%20101858.png)
+
+

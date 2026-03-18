@@ -8,6 +8,9 @@ def er_gyldig_passord(passord: str) -> bool:
         return False
     if not re.search(r'[0-9]', passord):
         return False
+    if not re.search(r'[t]', passord):
+        return False
     if ' ' in passord:
         return False
-    return True
+    else:
+        return True

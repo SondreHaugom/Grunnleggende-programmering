@@ -1,4 +1,4 @@
-## Grunnleggende programmering
+# Grunnleggende programmering
 
 Oppgave for å gjennomføre de mest basic programerings metoder
 
@@ -7,17 +7,22 @@ Oppgave for å gjennomføre de mest basic programerings metoder
 [![Status](https://img.shields.io/badge/status-under%20arbeid-yellow)](#)
 
 
+---
+
+
 ## Innholdsfortegnelse
 - [Om-prosjektet](#Om-prosjektet)
 - [Prosjektstruktur](#Prosjektstruktur)
-- [Filforklaring](#Filforklaring)
+- [Filstruktur](#Filstruktur)
 - [Biblioteker-og-begrunnelse](#Biblioteker-og-begrunnelse)
+- [Oppgaver](#Oppagver)
 - [Installasjon-og-oppsett](#Installasjon-og-oppsett)
 - [Sikkerhet-og-personvern](#Sikkerhet-og-personvern)
 - [Feilsøkings-strategier](#Feilsøkings-strategier)
 
+---
 
-# Om prosjektet
+## Om prosjektet
 Dette prosjektet er et øvingsprosjekt hvor jeg skal jobbe systematisk med de mest brukte programmeringsmetodene og ferdighetene. Prosjektet er delt inn i fire ulike, mindre delprosjekter/oppgaver. Hver oppgave har som hensikt å fokusere på én spesifikk, grunnleggende ferdighet innen programmering.
 
 Gjennom disse delprosjektene skal jeg arbeide med følgende temaer:
@@ -27,3 +32,71 @@ Gjennom disse delprosjektene skal jeg arbeide med følgende temaer:
 - Databaser – Få innsikt i hvordan man kan lagre, hente og manipulere data ved hjelp av databaser.
 - Logikk – Utvikle evnen til å bruke betingelser og logiske uttrykk for å styre programflyten.
 Målet med prosjektet er å tilegne meg solide, grunnleggende ferdigheter i programmering, uten å bruke kunstig intelligens til å løse oppgavene. Jeg skal i stedet benytte dokumentasjon og andre tilgjengelige, tradisjonelle hjelpemidler. Dette vil styrke min selvstendighet og forståelse for sentrale konsepter innen programmering.
+
+---
+
+## Filstruktur
+ Grunnlegende Programmering/
+├── README.md
+├── .vscode/
+│   └── settings.json
+└── Oppgaver/                       # Main project folder
+    ├── .gitignore
+    ├── pyvenv.cfg                  # Virtual environment configuration
+    ├── Include/                    # Python headers
+    ├── Lib/                        # Python libraries
+    ├── Scripts/                    # Virtual environment scripts
+    │   ├── Activate.ps1            # Environment activation
+    │   ├── python.exe              # Python executable
+    │   ├── Passord/                # 🔐 Password exercises
+    │   │   ├── oppgave2_passord.py
+    │   │   └── test_oppgave2_passord.py
+    │   └── Logg/                   # 📝 Logging exercises
+    │       ├── logg.py
+    │       ├── logg.csv
+    │       └── logg.txt
+    └── [other virtual environment files...]
+
+---
+
+## Biblioteker-og-begrunnelse
+|Import / Bibliotek           |Formål                                                 |
+|-----------------------------|-------------------------------------------------------|
+| `os`                        |	Håndterer fil- og mappestier                          |
+| `re`                        | Regulære uttrykk matcher tekstmønstre i Python med re |
+| `pytest`                    | pytest brukes til å kjøre tester i Python             |
+
+
+---
+
+## Oppgaver
+Som nevnt er det fire forksjellige små porsjketer/ oppgaver.
+- løkker
+- Funksjoner
+- Databaser
+- Logikk
+ 
+Jeg har gjennomført alle oppgavene gradevis og begynt med Løkker
+
+
+## Logg.py
+Den aller første oppgaven handler om å bruke løkker i Python. Hensikten er å få kompetanse i å bruke dem til å løse forskjellige typer oppgaver og formål.
+
+Oppgaven handler spesifikt om å bruke for-løkker til å hente ut ulike typer data fra en tekstfil (txt). Denne tekstfilen inneholder en del data/informasjon som vi skal bruke for-løkker til å skrive ut. I txt-filen ligger det mange logger med dato, bruker og status (OK eller FEIL). Ut fra dette er det tre ting vi skal hente ut.
+- antall linjer totalt
+- antall OK og FAIL
+- antall per bruker (hvor mange linjer hver bruker har)
+
+### Løsning 
+For å løse denne oppgaven brukte jeg litt tid på å utforske. Jeg satte opp en løkke og begynte med å prøve å hente ut alle linjene i logg.txt. Det jeg måtte passe på, var at den ikke hentet ut flere linjer enn nødvendig. Jeg ville kun hente linjer der det faktisk var tekst, og kun linjene der loggen var skrevet.
+
+Slik holdt jeg på med de andre dataene jeg skulle hente ut, og til slutt fikk jeg et skript som hentet ut alt jeg trengte. Skriptet fungerte, men det var langt fra en god og robust kode som jeg var fornøyd med. For å løse dette satte jeg meg ned og refaktorerte koden min. Jeg visste hvordan dataene skulle skrives ut og hvordan jeg leste dem inn, så jeg kunne endre litt på logikken for å få en mer robust og lettlest kode som er enklere å vedlikeholde.
+
+Måten det ble løst på var at jeg, i stedet for å ha mange for-løkker etter hverandre, samlet alt i en funksjon med én for-løkke og ulike sjekker. Hver sjekk skrev ut de forskjellige dataene fra txt-filen som skulle vises.
+
+#### Resultat
+![Skjermbilde](bilder/Skjermbilde%202026-03-18%20093942.png)
+
+
+
+## Passord

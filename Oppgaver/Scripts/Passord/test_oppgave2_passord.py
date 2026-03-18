@@ -11,5 +11,6 @@ from oppgave2_passord import er_gyldig_passord
     ("SUNNY8RAIN", False), # Mangler små bokstaver
     ("Sunny8Rain!", True), # Gyldig passord med spesialtegn
 ])
+# Testfunksjon som sjekker om passordet er gyldig i henhold til kravene
 def test_er_gyldig_passord(passord, forventet):
     assert er_gyldig_passord(passord) == forventet

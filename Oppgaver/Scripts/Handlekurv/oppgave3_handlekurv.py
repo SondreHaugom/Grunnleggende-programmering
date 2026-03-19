@@ -1,5 +1,6 @@
+# funksjon for handlekurv som oppretter en tom handlekurv og en ordbok med varer og priser, og returnerer begge
 def handlekurv():
-    handlekurv =  []
+    handlekurv =  [] # tom liste som fylles seg opp med varer og priser
 
     varer = { "melk": 22.9, "brød": 15.5, "ost": 45.0, "egg": 30.0, "smør": 25.0}
     if not varer:
@@ -30,6 +31,8 @@ if __name__ == "__main__":
             print(f"{vare} lagt i handlekurven til {pris} kr.")
 
             vis_handlekurv = input("Vil du se handlekurven? (ja/nei): ")
+            
+            
             if vis_handlekurv.lower() == 'ja':
                 while True:
                     print("\n Din handlekurv:")
@@ -40,14 +43,15 @@ if __name__ == "__main__":
                             print(f"{item['Vare']} - {item['Pris']} kr")
 
                             total_pris = sum(item['Pris'] for item in handlekurv)
+                        print(f"Total pris: {total_pris:.2f} kr")
 
-                            print(f"Total pris: {total_pris} kr")
                     kasse = input("Vil du gå til kassen? (ja/nei): ")
                     if kasse.lower() == 'ja':
-                        print(f"Du har betalt {total_pris} kr. Takk for handleturen!")
-                        break
-                    else:
-                        print("Du kan fortsette å handle.")
+                        while True:
+                            print(f"Du betalte: {total_pris:.2f} kr. Takk for handleturen!")
+                            exit()
+                    elif kasse.lower() == 'nei':
+                        print("Du fortsetter å handle.")
                         break
 
         except ValueError:

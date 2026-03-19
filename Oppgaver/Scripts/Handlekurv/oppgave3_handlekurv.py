@@ -41,6 +41,12 @@ if __name__ == "__main__":
                     else:
                         for item in handlekurv:
                             print(f"{item['Vare']} - {item['Pris']} kr")
+                            print("Vil du fjerne en vare fra handlekurven? (ja/nei): ")
+                            fjern_vare = input()
+                            if fjern_vare.lower() == 'ja':
+                                vare_fjern = input("Skriv inn navnet på varen du vil fjerne: ")
+                                handlekurv = [item for item in handlekurv if item['Vare'].lower() != vare_fjern.lower()]
+                                print(f"{vare_fjern} fjernet fra handlekurven.")
 
                             total_pris = sum(item['Pris'] for item in handlekurv)
                         print(f"Total pris: {total_pris:.2f} kr")

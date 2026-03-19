@@ -24,9 +24,12 @@ if __name__ == "__main__":
             print("Takk for handelen")
             break
         if valg.lower() == "d":
-            handlekurv.clear()
-            print("Handlekurven er tømt.")
-
+            fjern_vare = input("Skriv inn navnet på varen du vil fjerne fra handlekurven: ")
+            if fjern_vare in handlekurv:
+                handlekurv.remove(fjern_vare)
+                print(f"{fjern_vare} fjernet fra handlekurven. Nåværende handlekurv: {[(v, varer[v], 'kr') for v in handlekurv]}")
+            else:
+                print("Varen er ikke i handlekurven. Prøv igjen.")
         # sjekker om varen er tilgjengelig og legger den til i handlekurven hvis den er det
         elif valg in varer:
             handlekurv.append(valg)

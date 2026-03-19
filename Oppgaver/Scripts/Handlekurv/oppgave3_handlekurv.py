@@ -10,43 +10,47 @@ def handlekurv():
 
 
 if __name__ == "__main__":
-    handlekurv, varer = handlekurv()    
+    handlekurv, varer = handlekurv()
     print("Velkommen til handlekurven!")
+
     while True:
-        # viser tigjengelige varer og priser
-        print("Tilgjengelige varer:")
+        print("\nTilgjengelige varer:")
         for vare, pris in varer.items():
             print(f"{vare}: {pris} kr")
 
-        # ber brukeren om å skrive inn navnet på varen de ønsker å legge til i handlekurven
-        valg = input("Skriv inn navnet på varen: ")
-        if valg == "q":
-            print("Takk for handelen")
+        print("\nSkriv inn navnet på varen og prisen for å legge den i handlekurven (trykk 'q' for å avslutte): ")
+
+        vare = input("Vare: ")
+        if vare.lower() == 'q':
+            print("Takk for handleturen!")
             break
-        if valg.lower() == "d":
-            fjern_vare = input("Skriv inn navnet på varen du vil fjerne fra handlekurven: ")
-            if fjern_vare in handlekurv:
-                handlekurv.remove(fjern_vare)
-                print(f"{fjern_vare} fjernet fra handlekurven. Nåværende handlekurv: {[(v, varer[v], 'kr') for v in handlekurv]}")
-            else:
-                print("Varen er ikke i handlekurven. Prøv igjen.")
-        # sjekker om varen er tilgjengelig og legger den til i handlekurven hvis den er det
-        elif valg in varer:
-            handlekurv.append(valg)
-            print(f"{valg} lagt til i handlekurven. Nåværende handlekurv: {[(v, varer[v], 'kr') for v in handlekurv]}")
-        else:
-            print("Varen er ikke tilgjengelig. Prøv igjen.")
+        try:
+            pris = float(input("Pris: "))
+            handlekurv.append({"Vare": vare, "Pris": pris})
+            print(f"{vare} lagt i handlekurven til {pris} kr.")
 
-        vis_total = pris = sum(varer[vare] for vare in handlekurv)
-        print(f"Total pris: {vis_total} kr")
+            vis_handlekurv = input("Vil du se handlekurven? (ja/nei): ")
+            if vis_handlekurv.lower() == 'ja':
+                while True:
+                    print("\n Din handlekurv:")
+                    if not handlekurv:
+                        print("Handlekurven er tom.")
+                    else:
+                        for item in handlekurv:
+                            print(f"{item['Vare']} - {item['Pris']} kr")
 
-        # spør brukeren om de vil se handlekurven og viser den hvis de svarer "j"
-        vise_handlekurv = input("Vil du se handlekurven? (j/n): ")
-        if vise_handlekurv.lower() == "j":
-            if handlekurv:
-                print("Nåværende handlekurv:")
-                for vare in handlekurv:
-                    print(f"{vare}: {varer[vare]} kr")
-            else:
-                print("Handlekurven er tom.")
+                            total_pris = sum(item['Pris'] for item in handlekurv)
 
+                            print(f"Total pris: {total_pris} kr")
+                    kasse = input("Vil du gå til kassen? (ja/nei): ")
+                    if kasse.lower() == 'ja':
+                        print(f"Du har betalt {total_pris} kr. Takk for handleturen!")
+                        break
+                    else:
+                        print("Du kan fortsette å handle.")
+                        break
+
+        except ValueError:
+            print("Ugyldig pris. Vennligst skriv inn et gyldig tall.")
+
+ 

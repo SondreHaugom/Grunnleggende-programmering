@@ -3,23 +3,23 @@ def main():
     
     while True:
         menu()
-        valg = input("Velg et alternativ (1-4): ")
+        valg = input("Velg et alternativ (1-3) eller 'q' for å avslutte: ")
 
-        if valg == '1':
+        if valg == 'q':
+            print("Takk for handleturen!")
+            break
+
+        elif valg == '1':
             handlekurv = legg_til_varer(handlekurv)  # Send handlekurv som parameter
         
         elif valg == '2':
-            vis_handlekurv(handlekurv)
+            vis_handlekurv(handlekurv) # Viser handlekurven
         
         elif valg == '3':
-            print("Slett vare - ikke implementert enda")
-            
-        elif valg == '4':
-            print("Gå til kassen - ikke implementert enda")
-            break
-            
+            handlekurv = slett_vare(handlekurv) # Sletter varer fra handlekurven
+        
         else:
-            print("Ugyldig valg. Velg 1-4.")
+            print("Ugyldig valg. Velg 1-3 eller 'q' for å avslutte.")
 
 
 
@@ -29,7 +29,7 @@ def menu():
     print("1. Legg til vare")
     print("2. Vis handlekurv")
     print("3. Slett vare")
-    print("4. Gå til kassen")
+
 
 
 
@@ -72,19 +72,23 @@ def vis_handlekurv(handlekurv_liste):
 
 
 
-"""
 
-def slett_vare(handlekurv):
+
+def slett_vare(handlekurv_liste):
     print("Vil du fjerne en vare fra handlekurven? (ja/nei): ")
     fjern_vare = input()
     if fjern_vare.lower() == 'ja':
         vare_fjern = input("Skriv inn navnet på varen du vil fjerne: ")
-        handlekurv = [item for item in handlekurv if item['Vare'].lower() != vare_fjern.lower()]
-        print(f"{vare_fjern} fjernet fra handlekurven.")
-    return handlekurv
+        if vare_fjern in handlekurv_liste["Vare"]:
+            index = handlekurv_liste["Vare"].index(vare_fjern)
+            del handlekurv_liste["Vare"][index]
+            del handlekurv_liste["Pris"][index]
+            print(f"{vare_fjern} fjernet fra handlekurven.")
+        else:
+            print(f"{vare_fjern} finnes ikke i handlekurven.")
+    return handlekurv_liste
 
 
-"""
         
 
 

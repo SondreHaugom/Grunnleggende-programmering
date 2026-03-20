@@ -115,3 +115,9 @@ Måten jeg løste det på var ganske lik den første oppgaven. Siden jeg skulle 
 ![Skjermbilde](/bilder/Skjermbilde%202026-03-18%20101858.png)
 
 
+
+
+## Handlekurv (CRUD)
+Handlekurv oppgaven handler om å håndtere data som skal kunne vises, oprettes og fjernes. Dette er en CRUD. CRUD står for Create, Read, Update, and Delete, det enetse dette porsjektet ikke iplimenterer er update, men all annen funksjonalitet er satt opp. 
+
+# Skriver mer snart!!!!

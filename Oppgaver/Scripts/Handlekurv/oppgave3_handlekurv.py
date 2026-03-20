@@ -64,7 +64,9 @@ def vis_handlekurv(handlekurv_liste):
         print("Handlekurven er tom.")
     else:
         for vare, pris in zip(handlekurv_liste["Vare"], handlekurv_liste["Pris"]):
+            total_pris = sum(handlekurv_liste["Pris"])
             print(f"{vare} - {pris} kr")
+        print(f"Total pris: {total_pris:.2f} kr")
 
     return handlekurv_liste
 

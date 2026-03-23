@@ -132,6 +132,17 @@ Handlekurvoppgaven handler om å håndtere data som kan vises, opprettes og fjer
 Løsningen er gjennomført med lik strategi som de to første, der jeg begynte smått og la til mer og mer. Jeg har laget to løsninger for denne oppgave PGA en liten misforståelse. 
 
 #### Løsning 1:
-I første løsning følger jeg ikke en helt tradisjonell meny, men heller en fast sti som bruker skal følge. Stien tar dem igjennom alt fra å legge til varer, se handlekurv og muligheten til å slette, løsning viser også totalprisen. 
+I den første løsningen følger jeg ikke en helt tradisjonell meny, men heller en fast sti som brukeren skal følge. Denne stien tar brukeren gjennom hele prosessen, fra å legge til varer, til å se handlekurven og få mulighet til å slette varer. Løsningen viser også totalprisen. Jeg misforsto litt hvordan oppgaven skulle løses, så derfor fikk løsningen litt av min egen vri. Likevel er den satt opp og fungerer som den skal.
 
-# Skriver mer snart!!!!
+Måten dette er løst på, er at jeg implementerer én funksjonalitet om gangen, slik at jeg kan bygge videre på den underveis. Det betyr at jeg startet med for eksempel å legge til varer, og deretter implementerte resten av funksjonaliteten. Dette er gjort for at jeg ikke skal låse meg fast i én bestemt løsning, slik at jeg kan utforske og prøve meg frem dersom jeg ser nye muligheter underveis. 
+
+
+#### Løsning 2: 
+Løsning to er litt annerledes, siden oppgaven spesifikt ber om en meny. Jeg måtte derfor tenke gjennom hvordan jeg kunne implementere dette i Python på en enkel og forståelig måte. Dette ble løst ved at brukeren kan velge et tall fra 1 til 3, og ut fra dette valget får brukeren mulighet til å legge til varer, vise handlekurven og slette varer. Totalbeløpet blir også vist.
+
+Løsningen er gjennomført på samme måte som sist, ved at jeg gradvis implementerer funksjonalitet. Jeg startet med å lage funksjonen for å legge til varer. Den store forskjellen er at hele løsningen er bygd opp av funksjoner, noe som betyr at valgene brukeren gjør fører til at en bestemt funksjon blir kalt.
+
+
+
+#### Reslutat (Alternativ løsning)
+![Skjermbilde](/bilder/Skjermbilde%202026-03-23%20094025.png)

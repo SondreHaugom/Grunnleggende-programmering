@@ -121,6 +121,17 @@ Måten jeg løste det på var ganske lik den første oppgaven. Siden jeg skulle 
 
 
 ## Handlekurv (CRUD)
-Handlekurv oppgaven handler om å håndtere data som skal kunne vises, oprettes og fjernes. Dette er en CRUD. CRUD står for Create, Read, Update, and Delete, det enetse dette porsjektet ikke iplimenterer er update, men all annen funksjonalitet er satt opp. 
+Handlekurvoppgaven handler om å håndtere data som kan vises, opprettes og fjernes. Dette er en form for CRUD, som står for Create, Read, Update og Delete. Det eneste dette prosjektet ikke implementerer, er Update, men all annen funksjonalitet er på plass. Oppgaven gitt ut på at bruker skulle følge en meny som lar bruker gjennomføre forkjellige behov. 
+- 1: Legge til varer
+- 2: Vise varer/ handlekurv
+- 3: Slette varer
+  Målet med oppgaven er å få trening i å håndtere data på ulike måter som kan dekke behovene til systemet og brukeren generelt.
+
+
+### Løsning 
+Løsningen er gjennomført med lik strategi som de to første, der jeg begynte smått og la til mer og mer. Jeg har laget to løsninger for denne oppgave PGA en liten misforståelse. 
+
+#### Løsning 1:
+I første løsning følger jeg ikke en helt tradisjonell meny, men heller en fast sti som bruker skal følge. Stien tar dem igjennom alt fra å legge til varer, se handlekurv og muligheten til å slette, løsning viser også totalprisen. 
 
 # Skriver mer snart!!!!

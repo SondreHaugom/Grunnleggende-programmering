@@ -36,6 +36,8 @@ Målet med prosjektet er å tilegne meg solide, grunnleggende ferdigheter i prog
 ---
 
 ## Filstruktur
+
+```
  Grunnlegende Programmering/
 ├── README.md
 ├── .vscode/
@@ -56,6 +58,7 @@ Målet med prosjektet er å tilegne meg solide, grunnleggende ferdigheter i prog
     │       ├── logg.csv
     │       └── logg.txt
     └── [other virtual environment files...]
+```
 
 ---
 

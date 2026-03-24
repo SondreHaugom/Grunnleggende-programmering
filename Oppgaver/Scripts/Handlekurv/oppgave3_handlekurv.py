@@ -1,29 +1,4 @@
-def main():
-    handlekurv = {"Vare": [], "Pris": []}  # Flytt denne utenfor while-løkka
-    
-    while True:
-        menu()
-        valg = input("Velg et alternativ (1-3) eller 'q' for å avslutte: ")
-
-        if valg == 'q':
-            print("Takk for handleturen!")
-            break
-
-        elif valg == '1':
-            handlekurv = legg_til_varer(handlekurv)  # Send handlekurv som parameter
-        
-        elif valg == '2':
-            vis_handlekurv(handlekurv) # Viser handlekurven
-        
-        elif valg == '3':
-            handlekurv = slett_vare(handlekurv) # Sletter varer fra handlekurven
-        
-        else:
-            print("Ugyldig valg. Velg 1-3 eller 'q' for å avslutte.")
-
-
-
-
+# Funksjon for å vise menyen
 def menu():
     print("Velkommen til handlekurven!")
     print("1. Legg til vare")
@@ -57,7 +32,7 @@ def legg_til_varer(handlekurv_liste):
     return handlekurv_liste 
 
 
-
+# Funksjon for å vise handlekurven
 def vis_handlekurv(handlekurv_liste):
     print("\nDin handlekurv:")
     if not handlekurv_liste["Vare"]:
@@ -73,9 +48,7 @@ def vis_handlekurv(handlekurv_liste):
 
 
 
-
-
-
+# Funksjon for å slette varer fra handlekurven
 def slett_vare(handlekurv_liste):
     print("Vil du fjerne en vare fra handlekurven? (ja/nei): ")
     fjern_vare = input()
@@ -91,8 +64,34 @@ def slett_vare(handlekurv_liste):
     return handlekurv_liste
 
 
+
+def main():
+    handlekurv = {"Vare": [], "Pris": []}  # Flytt denne utenfor while-løkka
+    menu()
+    
+    while True:
+        valg = input("Velg et alternativ (1-3) eller 'q' for å avslutte: ")
+
+        if valg == 'q':
+            print("Takk for handleturen!")
+            break
+
+        elif valg == '1':
+            handlekurv = legg_til_varer(handlekurv)  # Send handlekurv som parameter
         
+        elif valg == '2':
+            vis_handlekurv(handlekurv) # Viser handlekurven
+        
+        elif valg == '3':
+            handlekurv = slett_vare(handlekurv) # Sletter varer fra handlekurven
+        
+        else:
+            print("Ugyldig valg. Velg 1-3 eller 'q' for å avslutte.")
 
 
+
+
+    
+# Kaller main-funksjonen for å starte programmet
 if __name__ == "__main__":
     main()

@@ -146,3 +146,13 @@ Løsningen er gjennomført på samme måte som sist, ved at jeg gradvis implemen
 
 #### Reslutat (Alternativ løsning)
 ![Skjermbilde](/bilder/Skjermbilde%202026-03-23%20094025.png)
+
+
+#### Resultat (Nåverende løsning)
+![Skjermbilde](/bilder/Skjermbilde4%202026-03-24%20121513.png)
+
+
+
+
+## FizzBuzz (Logikk)
+FizzBuzz er en logikk oppgave. Oppagven går ut på at man skal skrive ut 100 tall i terminalen. For for vert tall som er delelig med 3 skal tallet erstattes med Fizz og vert tall som er deleig med 5 skal erstattes med Buzz og tilslutt tallet som er deleig med både 3 og 5 skal erstattes med FizzBuzz. 

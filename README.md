@@ -155,4 +155,17 @@ Løsningen er gjennomført på samme måte som sist, ved at jeg gradvis implemen
 
 
 ## FizzBuzz (Logikk)
-FizzBuzz er en logikk oppgave. Oppagven går ut på at man skal skrive ut 100 tall i terminalen. For for vert tall som er delelig med 3 skal tallet erstattes med Fizz og vert tall som er deleig med 5 skal erstattes med Buzz og tilslutt tallet som er deleig med både 3 og 5 skal erstattes med FizzBuzz. 
+FizzBuzz er en logikk oppgave. Oppagven går ut på at man skal skrive ut 100 tall i terminalen. For for vert tall som er delelig med 3 skal tallet erstattes med Fizz og vert tall som er delelig med 5 skal erstattes med Buzz og tilslutt tallet som er delelig med både 3 og 5 skal erstattes med FizzBuzz. 
+
+
+
+#### Løsning
+Denne oppgaven er en ganske kort oppgave og fant raskt en løsing ved å google seg fram. Løsningen er slik at det er en fuksjon der jeg kjører en for løkke, den løkka sjekker:
+- Hvilke tall som kan deles med 3 og 5 (skriver ut FizzBuss)
+- Hvilke tall som deles med 3 (Skriver ut Fizz)
+- Hvilke tall som deles med 5 (Skrievr ut Buzz)
+
+
+##### Resultat 
+
+![Skjermbilde](/bilder/Skjermbilde5%202026-03-24%20133114.png)

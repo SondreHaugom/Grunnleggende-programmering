@@ -51,6 +51,10 @@ def legg_til_varer(handlekurv_liste):
     return handlekurv_liste 
 
 
+
+
+
+
 # Funksjon for å vise handlekurven
 def vis_handlekurv(handlekurv_liste):
     print("\nDin handlekurv:")
@@ -63,6 +67,10 @@ def vis_handlekurv(handlekurv_liste):
         print(f"Total pris: {total_pris:.2f} kr")
 
     return handlekurv_liste
+
+
+
+
 
 
 
@@ -81,6 +89,11 @@ def slett_vare(handlekurv_liste):
         else:
             print(f"{vare_fjern} finnes ikke i handlekurven.")
     return handlekurv_liste
+
+
+
+
+
 
 
 

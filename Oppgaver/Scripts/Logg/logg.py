@@ -14,13 +14,13 @@ def count_lines_in_file(file_path):
             all_lines = file.readlines()
             # Henter ut alle linjer fra lista
             for line in all_lines:
-                parts = line.strip().split(';')
+                parts = line.strip().split(';') # Deler linjen i deler basert på ';' og fjerner eventuelle mellomrom
 
-                if line.strip():  # Check if the line is not empty
+                if line.strip():  # Sjekker om linjen ikke er tom
                     total_lines += 1
                 
 
-                # skjekker for antal FAIL og OK linher ved å sjekke siste kolonne i linjen
+                # sjekker for antall FAIL og OK linjer ved å sjekke siste kolonne i linjen
                 if len(parts) >= 3 and parts[-1] == "FAIL":
                     total_fails += 1
                 
@@ -43,7 +43,8 @@ def count_lines_in_file(file_path):
         print("Total lines for each user:")
         for name, count in user_line_counts.items():
             print(f"{name}: {count}", "linjer")
- 
+        
+    # håndterer feil hvis filen ikke finnes
     except FileNotFoundError:
         print(f"Error: The file '{file_path}' was not found.")
 

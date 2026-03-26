@@ -17,16 +17,35 @@ def legg_til_varer(handlekurv_liste):
     while True:
         print("\nTilgjengelige varer:")
         for vare, pris in varer.items():
-            print(f"{vare}: {pris} kr")
+            print(f"{vare} - {pris} kr")
+
         print("\nSkriv inn navnet på varen og prisen for å legge den i handlekurven (trykk 'q' for å avslutte): ")
         vare = input("Vare: ")
+
+        # Sjekk om brukeren vil avslutte
         if vare.lower() == 'q':
             print("Takk for handleturen!")
             break
+
+        # Sjekk om varen finnes i tilgjengelige varer
+        if vare not in varer:
+            print(f"Feil! '{vare}' finnes ikke i butikken. Velg fra listen over.")
+            continue  # Gå tilbake til start av løkka
+
+        # try - except for å håndtere feil ved innskriving av pris, og sjekke at prisen er korrekt i forhold til prislisten
         try:
+            # Sjekk at prisen er korrekt i forhold til prislisten
             pris = float(input("Pris: "))
+            if pris not in varer.values():
+                print(f"Feil! Prisen for '{vare}' er ikke korrekt. Sjekk prislisten.")
+                continue  # Gå tilbake til start av løkka
+
+            # Legg til varen og prisen i handlekurven
             handlekurv_liste["Vare"].append(vare)
             handlekurv_liste["Pris"].append(pris)
+            print(f"{vare} lagt til i handlekurven for {pris} kr.")
+
+        # Håndterer feil ved innskriving av pris, for eksempel hvis brukeren skriver inn tekst i stedet for et tall
         except ValueError:
             print("Ugyldig pris. Vennligst skriv inn et gyldig tall.")
     return handlekurv_liste 
